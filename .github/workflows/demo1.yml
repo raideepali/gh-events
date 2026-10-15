@@ -1,8 +1,21 @@
 name: Events Demo 1
-on: 
+on:
   pull_request:
     types: opened
+    branches:
+      - main #main branch
+      - "dev-*" # dev-new, dev-1, dev-2, etc.
+      - "feat/**" #feat/feature1, feat/feature2/new, etc.
+      # developer-1
   workflow_dispatch:
+  push:
+    branches:
+      - main #main branch
+      - "dev-*" # dev-new, dev-1, dev-2, etc.
+      - "feat/**" #feat/feature1, feat/feature2/new, etc.
+      # developer-1
+    paths-ignore:
+      - ".github/workflows/demo1.yml"
 jobs:
   deploy:
     runs-on: ubuntu-latest
